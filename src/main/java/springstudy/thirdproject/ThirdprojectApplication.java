@@ -1,13 +1,13 @@
-package springstudy.thirdprject;
+package springstudy.thirdproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ThirdprjectApplication {
+public class ThirdprojectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ThirdprjectApplication.class, args);
+		SpringApplication.run(ThirdprojectApplication.class, args);
 	}
 
 }

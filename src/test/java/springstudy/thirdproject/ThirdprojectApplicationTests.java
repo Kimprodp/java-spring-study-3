@@ -1,10 +1,10 @@
-package springstudy.thirdprject;
+package springstudy.thirdproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ThirdprjectApplicationTests {
+class ThirdprojectApplicationTests {
 
 	@Test
 	void contextLoads() {
