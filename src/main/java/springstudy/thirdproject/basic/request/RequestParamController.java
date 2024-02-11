@@ -7,9 +7,11 @@ import java.util.Map;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springstudy.thirdproject.basic.HelloData;
 
 @Slf4j
 @Controller
@@ -79,6 +81,37 @@ public class RequestParamController {
     @RequestMapping("/request-param-map")
     public String requestParamMap(@RequestParam Map<String, Object> paramMap) {
         log.info("username = {}, age = {}", paramMap.get("username"), paramMap.get("age"));
+
+        return "ok";
+    }
+
+    @ResponseBody
+    @RequestMapping("/model-attribute-v1")
+    public String modelAttributeV1(@RequestParam String username, @RequestParam int age) {
+        HelloData helloData = new HelloData();
+        helloData.setUsername(username);
+        helloData.setAge(age);
+
+        log.info("username = {}, age = {}", helloData.getUsername(), helloData.getAge());
+        log.info("helloDate = {}", helloData.toString());
+
+        return "ok";
+    }
+
+    // ModelAttribute 는 모델 객체를 생성하고, 요청 파라미터의 이름으로 객체의 프로퍼티(setter)를 찾아 호출하고 값을 입력함
+//    @ResponseBody
+//    @RequestMapping("/model-attribute-v2")
+//    public String modelAttributeV2(@ModelAttribute HelloData helloData) {
+//        log.info("helloDate = {}", helloData.toString());
+//
+//        return "ok";
+//    }
+
+    // ModelAttribute 생략 가능 (String, Integer, int와 같은 단순 타입이 아닌 경우만 ModelAttribute)
+    @ResponseBody
+    @RequestMapping("/model-attribute-v2")
+    public String modelAttributeV2(HelloData helloData) {
+        log.info("helloDate = {}", helloData.toString());
 
         return "ok";
     }
