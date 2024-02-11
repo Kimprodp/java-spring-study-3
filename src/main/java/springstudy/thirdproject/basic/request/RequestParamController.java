@@ -110,7 +110,7 @@ public class RequestParamController {
     // ModelAttribute 생략 가능 (String, Integer, int와 같은 단순 타입이 아닌 경우만 ModelAttribute)
     @ResponseBody
     @RequestMapping("/model-attribute-v2")
-    public String modelAttributeV2(HelloData helloData) {
+    public String modelAttributeV2(@ModelAttribute HelloData helloData) {
         log.info("helloDate = {}", helloData.toString());
 
         return "ok";
